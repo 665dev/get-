@@ -11,7 +11,7 @@ public class ItemController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("touch!" + other.name); // 誰に当たったか表示
+        //Debug.Log("touch!" + other.name); // 誰に当たったか表示
         if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);

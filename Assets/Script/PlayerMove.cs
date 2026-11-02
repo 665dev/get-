@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Debug.Log("Wキー: " + Input.GetKey(KeyCode.W));
+        //Debug.Log("Wキー: " + Input.GetKey(KeyCode.W));
         //ゆっくり加速したいので、GetAxisRawではなくGet.Axisにした
         //float moveInputX = Input.GetAxis("Horizontal");
         //float moveInputZ = Input.GetAxis("Vertical");
