@@ -2,37 +2,38 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
-    public GameObject player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private ItemManager itemManager;
+
     void Start()
     {
-        
+        // シーン内のItemManagerを探して取得
+        itemManager = Object.FindAnyObjectByType<ItemManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("touch!" + other.name); // 誰に当たったか表示
         if (other.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            if (itemManager != null)
+            {
+                itemManager.CollectItem();
+            }
+            Destroy(gameObject); // アイテムを消す
         }
+
+        /// <summary>
+        /// 奮闘記
+        /// </summary>
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    Debug.Log("touch!");
+        //    if (other.gameObject == player)
+        //    {
+        //        Destroy(this.gameObject);
+        //    }
+        //}
+
+        // Update is called once per frame
     }
 
-    /// <summary>
-    /// 奮闘記
-    /// </summary>
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log("touch!");
-    //    if (other.gameObject == player)
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
